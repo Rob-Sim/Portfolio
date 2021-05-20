@@ -1,11 +1,13 @@
-//This all controls the animations on scroll.
-//Add item you want to this obj with its id. Then make a class with "id + --scrolled" for the animation
-let toBeAnimated = {
-    greet: {id:"greetID"},
-    tech: {id:"techCont"},
-    rob: {id:"robCont"},
-    contact: {id:"contactID"}
-}
+//Add class of "AOS". Then make a class with "id + --scrolled" for the animation
+let toBeAnimated = {};
+(function(){
+    let aosArr = document.getElementsByClassName("AOS")
+    for(i = 0; i < aosArr.length; i++){
+        let id = aosArr[i].id
+        toBeAnimated[id] = {"id": id}
+    }
+})()
+
 //Some animations we dont want to do on a phone, use this var 
 const touchScreen = ("ontouchstart" in document.documentElement)
 
@@ -63,7 +65,6 @@ window.addEventListener("scroll", function(){
     //No throttle to make the zoom of the skills img smooth
     if(!(touchScreen)){
         if(isInViewport(skillsImg)){
-            console.log("the width is higher than the height")
             //Increase the background image size according to the amount of screen scrolled
             skillsImg.style.backgroundSize = 65 + scrollPercentage + "% auto"
             //rotate the text

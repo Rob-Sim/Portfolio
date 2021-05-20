@@ -4,8 +4,10 @@ if(!('ontouchstart' in document.documentElement)){
         let js = document.createElement("script")
         js.src = "assets/scripts/parallax.js"
         document.querySelector('body').appendChild(js)
-        //Only use the rellax library when it isnt a touchscreen device. Maybe change for screen size.
-        new Rellax('.rellax');
+        //Only use the rellax library when it isnt a touchscreen device. at 740px, a style query breaks if there isnt a rellax.
+        if(window.innerWidth > 740){
+            new Rellax('.rellax');
+        }
     })()
     //In the interest of processing power on phones, dont use the flip word feature
 }else{
