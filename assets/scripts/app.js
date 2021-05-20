@@ -1,4 +1,3 @@
-//If the device is not a touchscreen - import the parallax file into the html
 if(!('ontouchstart' in document.documentElement)){ 
     (function (){
         let js = document.createElement("script")
@@ -10,9 +9,8 @@ if(!('ontouchstart' in document.documentElement)){
         }
     })()
     //In the interest of processing power on phones, dont use the flip word feature
-}else{
-//This flips a random amount of random words from the skills container
-//Adds class to flip the word, reverses the word's order of letters to make it readable
+    //This flips a random amount of random words from the skills container
+    //Adds class to flip the word, reverses the word's order of letters to make it readable
     (function(){
         let cont = document.getElementById("skillsText").children
         //Random amount of words. Where min is 4 and amount of items in container is max
@@ -35,7 +33,6 @@ if(!('ontouchstart' in document.documentElement)){
         }
     }())
 }
-
 // Loop through each step item and add a transition delay of increasing amounts
 (function(){
     let stepItemArr = document.getElementsByClassName("steps")
