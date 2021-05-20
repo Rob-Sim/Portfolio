@@ -6,6 +6,8 @@ let toBeAnimated = {
     rob: {id:"robCont"},
     contact: {id:"contactID"}
 }
+//Some animations we dont want to do on a phone, use this var 
+const touchScreen = ("ontouchstart" in document.documentElement)
 
 const thumb = document.getElementById("progressBar__thumb")
 const skillsImg = document.getElementById("selector--skills")
@@ -59,8 +61,9 @@ window.addEventListener("scroll", function(){
     }
     //Only zoom image when the innerWidth is more than the height. Image is square, and we base back size on width of vp
     //No throttle to make the zoom of the skills img smooth
-    if(window.innerWidth > vh){
+    if(!(touchScreen)){
         if(isInViewport(skillsImg)){
+            console.log("the width is higher than the height")
             //Increase the background image size according to the amount of screen scrolled
             skillsImg.style.backgroundSize = 65 + scrollPercentage + "% auto"
             //rotate the text
