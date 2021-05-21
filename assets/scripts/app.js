@@ -7,7 +7,7 @@ if(!('ontouchstart' in document.documentElement)){
         if(window.innerWidth > 740){
             new Rellax('.rellax');
         }
-    })()
+    })();
     //In the interest of processing power on phones, dont use the flip word feature
     //This flips a random amount of random words from the skills container
     //Adds class to flip the word, reverses the word's order of letters to make it readable
