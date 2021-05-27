@@ -40,7 +40,7 @@ function isInViewport(el){
     return(!(rect.top >= 500 || rect.bottom <= ((window.innerHeight) - 100)))
 }
 
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", function(e){
     let winScroll = document.documentElement.scrollTop || document.body.scrollTop
     let vh = window.innerHeight / 2
     let scrollPercentage = ((winScroll / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100)
@@ -72,3 +72,12 @@ window.addEventListener("scroll", function(){
         }
     }
 })
+
+//If the display isnt touchscreen, set up event listener for mouse movement and more the custom cursor accordingly. Else, remove the custom cursor
+let cursor = document.getElementById("cursor")
+if(!(touchScreen)){
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.top = e.clientY + "px"
+        cursor.style.left = e.clientX + "px"
+    })
+}else{ cursor.style.display = "none" }

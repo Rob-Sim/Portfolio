@@ -1,3 +1,4 @@
+//If the device is not a touchscreen - import the parallax file into the html
 if(!('ontouchstart' in document.documentElement)){ 
     (function (){
         let js = document.createElement("script")
@@ -33,12 +34,13 @@ if(!('ontouchstart' in document.documentElement)){
         }
     }())
 }
+
 // Loop through each step item and add a transition delay of increasing amounts
 (function(){
     let stepItemArr = document.getElementsByClassName("steps")
     for(i = 0; i < stepItemArr.length; i++){
         //Use the step item's indexOf to quantify amount of delay
-        stepItemArr[i].style.transitionDelay = (i / 5) + "s"
+        stepItemArr[i].style.transitionDelay = (i / 7) + "s"
     }
 })()
 
